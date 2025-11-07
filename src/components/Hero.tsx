@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-consulting.jpg";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -9,13 +8,8 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+      <div
+        className="absolute inset-0 z-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90"
       />
       
       <div className="container relative z-10 px-4 mx-auto">
