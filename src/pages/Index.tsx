@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function VelarixLanding() {
+  const navigate = useNavigate();
   const vantaRef = useRef(null);
   const vantaEffect = useRef(null);
 
