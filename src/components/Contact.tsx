@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -177,20 +177,22 @@ const Contact = () => {
                 </div>
                 
                 <div className="pt-4">
-                  <Button 
+                  <button
                     type="submit"
-                    size="lg"
                     disabled={isSubmitting}
-                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium py-6 text-base transition-all hover:scale-[1.02]"
+                    className="w-full group relative bg-gradient-to-r from-accent/80 via-accent/70 to-accent/80 rounded-xl px-6 py-6 text-foreground font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent/30 btn-modern disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"} <Send className="ml-2 h-5 w-5" />
-                  </Button>
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                      <Send className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-accent/70 via-accent/80 to-accent/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                  </button>
                 </div>
               </form>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 pt-8 border-t border-border text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-accent" />
                   <span>Netherlands & United States</span>
                 </div>
                 

@@ -113,9 +113,9 @@ const Blog = () => {
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-muted-foreground font-light">{post.readTime}</span>
                       <Button 
-                        variant="ghost" 
+                        variant="glass" 
                         size="sm"
-                        className="group-hover:text-accent transition-colors"
+                        className="group-hover:text-accent transition-all"
                       >
                         Read More <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>

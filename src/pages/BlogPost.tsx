@@ -109,7 +109,7 @@ const BlogPost = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-          <Button onClick={() => navigate('/blog')}>
+          <Button variant="glass" onClick={() => navigate('/blog')}>
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
           </Button>
         </div>
@@ -124,7 +124,7 @@ const BlogPost = () => {
       <article className="pt-28 pb-24">
         <div className="container px-4 mx-auto max-w-3xl">
           <Button 
-            variant="ghost" 
+            variant="glass" 
             onClick={() => navigate('/blog')}
             className="mb-8"
           >
@@ -160,7 +160,7 @@ const BlogPost = () => {
           <div className="mt-16 pt-8 border-t border-border">
             <Button 
               onClick={() => navigate('/blog')}
-              variant="outline"
+              variant="glass"
             >
               <ArrowLeft className="mr-2 h-4 w-4" /> More Insights
             </Button>

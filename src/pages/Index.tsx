@@ -40,12 +40,18 @@ export default function Index() {
               minWidth: 200.00,
               scale: 1.00,
               scaleMobile: 1.00,
-              color: '#ffffff',
-              backgroundColor: 'rgba(0, 0, 0, 0.05)',
-              backgroundAlpha: 0.8,
-              points: 25.00,
-              maxDistance: 25.00,
-              spacing: 18.00
+              color: '#06b6d4', // Cyan blue - vibrant and visible
+              backgroundColor: 'rgba(18, 18, 18, 0.01)',
+              backgroundAlpha: 0.1,
+              points: 20.00, // More points for better visibility
+              maxDistance: 25.00, // Longer connections for visibility
+              spacing: 20.00, // Uniform spacing
+              showLines: true,
+              lineSpeed: 0.3, // Smooth movement
+              showDots: true,
+              dotRadius: 2.0, // Larger dots for visibility
+              lineWidth: 1.2, // Thicker lines for visibility
+              cameraDistance: 50.00
             });
           }
         };
@@ -66,7 +72,7 @@ export default function Index() {
   return (
     <>
       <div ref={vantaRef} className="fixed inset-0 -z-10" />
-      <div className="fixed inset-0 -z-10 bg-black/5 pointer-events-none" />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/60 to-background/70 pointer-events-none" />
       <div className="relative">
         <Navigation />
         <Hero />
