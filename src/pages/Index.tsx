@@ -40,8 +40,9 @@ export default function Index() {
               minWidth: 200.00,
               scale: 1.00,
               scaleMobile: 1.00,
-              color: '#000000',
-              backgroundColor: 'rgba(0, 0, 0, 0.3)',
+              color: '#ffffff',
+              backgroundColor: 'rgba(0, 0, 0, 0.05)',
+              backgroundAlpha: 0.05,
               points: 17.00,
               maxDistance: 25.00,
               spacing: 18.00
@@ -65,6 +66,7 @@ export default function Index() {
   return (
     <>
       <div ref={vantaRef} className="fixed inset-0 -z-10" />
+      <div className="fixed inset-0 -z-10 bg-black/5 pointer-events-none" />
       <div className="relative">
         <Navigation />
         <Hero />
