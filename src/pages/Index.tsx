@@ -1,4 +1,4 @@
-import AnimatedBackground from '@/components/AnimatedBackground';
+import { useEffect, useRef } from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
@@ -7,10 +7,64 @@ import Portfolio from '@/components/Portfolio';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
+declare global {
+  interface Window {
+    VANTA: any;
+    THREE: any;
+  }
+}
+
 export default function Index() {
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<any>(null);
+
+  useEffect(() => {
+    if (!vantaEffect.current) {
+      const threeScript = document.createElement('script');
+      threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js';
+      threeScript.async = true;
+      
+      threeScript.onload = () => {
+        const vantaScript = document.createElement('script');
+        vantaScript.src = 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js';
+        vantaScript.async = true;
+        
+        vantaScript.onload = () => {
+          if (window.VANTA && vantaRef.current) {
+            vantaEffect.current = window.VANTA.NET({
+              el: vantaRef.current,
+              mouseControls: true,
+              touchControls: true,
+              gyroControls: false,
+              minHeight: 200.00,
+              minWidth: 200.00,
+              scale: 1.00,
+              scaleMobile: 1.00,
+              color: 0x8b5cf6,
+              backgroundColor: 0x0a0a0a,
+              points: 17.00,
+              maxDistance: 25.00,
+              spacing: 18.00
+            });
+          }
+        };
+        
+        document.body.appendChild(vantaScript);
+      };
+      
+      document.body.appendChild(threeScript);
+    }
+
+    return () => {
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+      }
+    };
+  }, []);
+
   return (
     <>
-      <AnimatedBackground />
+      <div ref={vantaRef} className="fixed inset-0 -z-10" />
       <div className="relative">
         <Navigation />
         <Hero />
