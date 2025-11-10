@@ -188,6 +188,7 @@ export async function notifyUserLogin(user: {
   uid: string;
   email?: string | null;
   displayName?: string | null;
+  phoneNumber?: string | null;
   providerId?: string;
 }): Promise<void> {
   const fields: DiscordEmbedField[] = [
@@ -202,6 +203,14 @@ export async function notifyUserLogin(user: {
     fields.push({
       name: 'Email',
       value: user.email,
+      inline: true,
+    });
+  }
+
+  if (user.phoneNumber) {
+    fields.push({
+      name: 'Phone',
+      value: user.phoneNumber,
       inline: true,
     });
   }
